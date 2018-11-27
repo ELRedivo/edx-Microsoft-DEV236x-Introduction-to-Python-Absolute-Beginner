@@ -1,18 +1,36 @@
-# [ ] review the code, run, fix the error
+# [ ] create, call and test the str_analysis() function  
+# then PASTE THIS CODE into edX
 
-tickets = int(input("Enter tickets remaining (0 to quit): "))
-
-#################### WHILE #######################################
-while tickets != 0:
+def str_analysis(string):
     
-    # if tickets are multiple of 3 then "winner"
-    if int(tickets/3) == tickets/3:
-        print("You win!")
-        break
+    if string.isdigit():
+
+        string = int(string)
+        
+        if string > 99:
+            
+            return str(string) + ' is pretty big number.'
+        
+        else:
+            
+            return str(string) + ' is a smaller number than expected.'
+
+    elif string.isalpha():
+        
+        return '\"' + string + '\" ' + 'is alphabetical characters.'
+    
     else:
-        print("Sorry, not a winner.")
-    
-    tickets = int(input("Enter tickets remaining (0 to quit): "))
-##################################################################
+        
+        return '\"' + string + '\" ' + 'is a surprise! It\'s neither all alpha nor all digit characters.'
 
-print("Game ended.")
+#########################################
+########## PROGRAM BEGINS HERE ##########
+#########################################
+
+str_input = ''
+
+while str_input == '':
+    
+    str_input = input('Enter word or integer: ')
+
+print(str_analysis(str_input))
