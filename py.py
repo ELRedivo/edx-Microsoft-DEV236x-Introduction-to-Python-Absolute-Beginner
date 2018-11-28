@@ -1,36 +1,79 @@
-# [ ] create, call and test the str_analysis() function  
-# then PASTE THIS CODE into edX
-
-def str_analysis(string):
+def adding_report(report = 'T'):
     
-    if string.isdigit():
-
-        string = int(string)
-        
-        if string > 99:
+    items = ''
+    total = 0
+    
+    print('Input an integer to add to the total or "Q" to quit.')
             
-            return str(string) + ' is pretty big number.'
+    while True:
         
+        item = input('Enter an integer or \"Q\": ')
+        
+        if item.isdigit():
+            
+            total += int(item)
+            
+            if report == 'A':
+                
+                items += item + '\n'
+            
+            else:
+                
+                pass
+        
+        elif item.upper().startswith('Q'):
+            
+            if report == 'A':
+                
+                print('[ITEMS]\n' + items)
+                print('[TOTAL]\n' + str(total))
+                break
+            
+            else:
+                
+                print('[TOTAL]\n' + str(total))
+                break
+                
         else:
+            print('Invalid input.')
             
-            return str(string) + ' is a smaller number than expected.'
-
-    elif string.isalpha():
-        
-        return '\"' + string + '\" ' + 'is alphabetical characters.'
-    
-    else:
-        
-        return '\"' + string + '\" ' + 'is a surprise! It\'s neither all alpha nor all digit characters.'
 
 #########################################
 ########## PROGRAM BEGINS HERE ##########
 #########################################
 
-str_input = ''
+#hash number for headers and ends
+hash_num = 75
 
-while str_input == '':
+print(hash_num * '#')
+
+#header
+print('Report Types include All Itens (\"A\") or Total Only (\"T\").')
+
+print(hash_num * '#')
+
+while True:
+    #input report type
+    report_type = input('Choose Report Type (\"A\") or (\"T\"): ')
+
+    if report_type.upper() == 'A':
     
-    str_input = input('Enter word or integer: ')
+        #call function adding_report(report)
+        adding_report(report_type.upper())
+        break
+    
+    elif report_type.upper() == 'T':
+    
+        #call function adding_report(report)
+        adding_report(report_type.upper())
+        break
 
-print(str_analysis(str_input))
+    elif report_type.upper() == 'Q':
+    
+        break
+    
+    else:
+        
+        print('Invalid Report Type. Run again.')
+
+print(hash_num * '#' + '\nQUIT...\n' + hash_num * '#')
